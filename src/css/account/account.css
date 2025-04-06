@@ -28,7 +28,7 @@ body {
     background-color: var(--mayo-med-blue);
     color: var(--site-white);
     border-radius: 30px;
-    padding: 5px;
+    padding: 8px;
     margin: 3px;
     font-family: var(--font-one);
     user-select: none;

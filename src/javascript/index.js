@@ -2,10 +2,12 @@ const LOG_IN = 'Log In';
 const SIGN_UP = 'Sign Up';
 
 let contents = document.getElementById('contents');
-// TODO: use to message user on unsuccessful auth or to indicate account was created successfully
+
+// success / error messaging to user
 let message = document.getElementById('message');
 
-// TODO: hookup php to authenticate or create accounts
+let form = document.createElement('form');
+
 function displayForm(status) {
 
     if (status === SIGN_UP) {
@@ -15,10 +17,23 @@ function displayForm(status) {
     message.hidden = false;
 
     // Create/configure new elements to be added
-    let form = document.createElement('form');
     form.id = 'input-form';
-    let emailInput = createInput('email', true ,'Email');
-    let passInput = createInput('password', true, 'Password');
+    form.method = 'post';
+    form.addEventListener('submit', (event) => onFormSubmit(event, status));
+    let emailInput = createInput('email', true ,'Email', 'email');
+    let passInput = createInput('password', true, 'Password', 'password');
+
+    // Additional elements for sign up
+    if (status === SIGN_UP) {
+        var nameInput = createInput('text', true, 'First Name', 'fName');
+
+        // Non-Required : can be configured in account page
+        var lastNameInput = createInput('text', false, 'Last Name', 'lName');
+        var heightFeetInput = createInput('number', false, 'Height (Feet)', 'hFeet');
+        var heightInchesInput = createInput('number', false, 'Height (Inches)', 'hInch');
+        var weightInput = createInput('number', false, 'Weight (lbs)', 'weight');
+    }
+
     let submitBtn = document.createElement('input');
     submitBtn.type = 'submit';
     submitBtn.value = status;
@@ -27,17 +42,6 @@ function displayForm(status) {
     backLink.innerHTML = 'Go Back';
     backLink.className = 'form-button';
     backLink.onclick = function() {location.reload();};
-
-    // Additional elements for sign up
-    if (status === SIGN_UP) {
-        var nameInput = createInput('text', true, 'First Name');
-
-        // Non-Required : can be configured in account page
-        var lastNameInput = createInput('text', false, 'Last Name');
-        var heightFeetInput = createInput('number', false, 'Height (Feet)');
-        var heightInchesInput = createInput('number', false, 'Height (Inches)');
-        var weightInput = createInput('number', false, 'Weight (lbs)');
-    }
 
     //Update status text
     document.getElementById('status').innerHTML = status;
@@ -58,15 +62,20 @@ function displayForm(status) {
         form.appendChild(heightInchesInput);
         form.appendChild(weightInput);  
     }
-    contents.appendChild(submitBtn);
+    form.appendChild(submitBtn);
     contents.appendChild(backLink);
 }
 
 /** 
  * Creates an input element with the specified attributes,
  * automatically is assigned the form-input class for styling
+ * 
+ * @param type - The input type
+ * @param required - Input required flag
+ * @param placeholder - The input placeholder text
+ * @param name - The name (to be used when referenced in php)
  */
-function createInput(type, required, placeHolder) {
+function createInput(type, required, placeHolder, name) {
     if (typeof type !== 'string' || typeof required !== 'boolean') {
         console.error('Bad params passed into createInput! [ Type = ' + type + " Required = " + required);
         return;
@@ -77,9 +86,44 @@ function createInput(type, required, placeHolder) {
     input.required = required;
     input.className = 'form-input';
     input.placeholder = placeHolder;
+    input.name = name;
+
     if (required) {
         input.placeholder += ' (Required)';
     }
     
     return input;
+}
+
+function onFormSubmit(event, status) {
+    // prevent page reload
+    event.preventDefault();
+
+    //determine sign up or login
+    let action;
+    if (status == LOG_IN) {
+        action = 'login';
+    } else if (status == SIGN_UP) {
+        action = 'signup';
+    }
+
+    // make and handle request to server
+    fetch('../php/index.php?action='+action, { method: 'POST', body: new FormData(form)})
+        .then(resp => handleResponse(resp))
+        .catch(error => console.error('Server error: ' + error));
+}
+
+function handleResponse(resp) {
+    
+    // Logging and user response
+    resp.text()
+        .then(body => {
+            console.log('Server response:' + body)
+            message.innerHTML = body;
+
+            if (resp.ok) {
+                console.log('Redirecting User...');
+                window.location.href = './dashboard/dashboard.html';
+            }
+        });
 }

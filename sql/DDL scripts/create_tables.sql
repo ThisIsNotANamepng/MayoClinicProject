@@ -10,7 +10,7 @@ CREATE TABLE UserDetails (
 	userId		int PRIMARY KEY,
 	dob			date,
     lastName	varchar(50),
-    height		float, -- probably have to convert feet and inches fields
+    heightFeet	float, -- probably have to convert feet and inches fields
     
     -- could be compared against reports --
     startWeight		float,

@@ -1,12 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reminders</title>
-    <!--Display and edit reminders, dashboard has a window with upcoming reminders, here you can edit them and see all of them-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reminders</title>
+  <!--Display and edit reminders, dashboard has a window with upcoming reminders, here you can edit them and see all of them-->
+  <link rel="stylesheet" href="../../../src/css/globals.css">
+  <link rel="stylesheet" href="../../../src/css/reminders/reminders.css">
 </head>
 <body>
+  <header id="main-header">
+    <!--TODO: adjust navbar elements for smaller screens-->
+    <span id="logo-title-display">
+        <img src="../../../resources/images/mayo_logo_transparent.jpg" alt="Mayo Clinic Logo">
+        <h2>Bariatric Patient Portal</h2>
+    </span>
+    <ul id="navbar">
+        <li class="nav-element"><a class="selection" href="../account/account.html">Account</a></li>
+        <li class="nav-element"><a class="selection" href="../reminders/reminders.html">Reminders</a></li>
+        <li class="nav-element"><a class="selection" href="#section-log">Logging</a></li>
+        <li class="nav-element"><a class="selection" href="">Reports</a></li>
+        <li class="nav-element"><a class="selection" href="#section-guide">Guides</a></li>
+    </ul>
+</header>
+  
+  <main id="content">
+    <section class="section-container" id="section-appointments">
+      <h2 class="section-header">Appointments</h2>
+      <div id="appointment-board">
+        <a href="../appointments/appointments.html">Go to Appointment Board</a>
+      </div>
+      <div id="appointments-view">
+        <table class="table-entry">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Appointment Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2025-04-10</td>
+              <td>Consultation</td>
+            </tr>
+            <tr>
+              <td>2025-05-15</td>
+              <td>Follow-up</td>
+            </tr>
+            <tr>
+              <td>2025-06-20</td>
+              <td>Routine Check</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
     
+    <section class="section-container" id="section-reminder">
+      <h2 class="section-header">Reminders</h2>
+      <div id="reminder-view">
+        <table class="table-entry">
+          <thead>
+            <tr>
+              <th>Task</th>
+              <th>Due Date</th>
+            </tr>
+          </thead>
+          <tbody id="reminder-table-body">
+            <tr>
+              <td>Take Medication</td>
+              <td>2025-04-05</td>
+            </tr>
+            <tr>
+              <td>Exercise</td>
+              <td>2025-04-06</td>
+            </tr>
+            <tr>
+              <td>Follow-up Call</td>
+              <td>2025-04-07</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+      
+    <section class="section-container" id="section-new-reminder">
+      <h2 class="section-header">Set a New Reminder</h2>
+      <form id="new-reminder-form">
+        <label for="task">Task:</label><br>
+        <input type="text" id="task" name="task" placeholder="e.g., Take Meds"><br><br>
+        <label for="due">Due Date & Time:</label><br>
+        <input type="datetime-local" id="due" name="due"><br><br>
+        <button type="submit" class="primary-button">Add Reminder</button>
+      </form>
+    </section>
+  </main>
+  <footer id="footer"></footer>
+  <script>
+    function handleReminderSubmit(event) {
+      event.preventDefault();
+      var task = document.getElementById('task').value;
+      var due = document.getElementById('due').value;
+      if (task && due) {
+        alert("New Reminder added: " + task + " at " + due);
+        
+       
+        var tr = document.createElement('tr');
+        
+        var tdTask = document.createElement('td');
+        tdTask.textContent = task;
+        tr.appendChild(tdTask);
+        
+        var tdDue = document.createElement('td');
+        tdDue.textContent = due;
+        tr.appendChild(tdDue);
+        
+        
+        document.getElementById('reminder-table-body').appendChild(tr);
+        
+       
+        document.getElementById('task').value = "";
+        document.getElementById('due').value = "";
+      } else {
+        alert("Please fill in both fields.");
+      }
+    }
+
+    var reminderForm = document.getElementById('new-reminder-form');
+    reminderForm.addEventListener('submit', handleReminderSubmit, false);
+  </script>
+
+
+  
 </body>
 </html>
+

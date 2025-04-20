@@ -1,0 +1,100 @@
+
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+
+#content {
+  margin-top: 15%;
+  padding: 20px;
+}
+
+.section-container {
+  margin-bottom: 40px;
+}
+
+.section-header {
+  background-color: #012d61;
+  color: aliceblue;
+  padding: 10px;
+  text-align: center;
+}
+
+#appointment-board {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#appointment-board a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #2273bb;
+  color: aliceblue;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+#appointment-board a:hover {
+  background-color: #012d61;
+}
+
+.table-entry th {
+  color: aliceblue;
+  background-color: #2273bb;
+  width: 50%;
+  padding: 8px;
+  text-align: left;
+}
+
+.table-entry td {
+  background-color: aliceblue;
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+}
+
+.table-entry {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#new-reminder-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#new-reminder-form input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 2px solid var(--mayo-med-blue);
+  border-radius: 5px;
+  width: 80%;
+  font-size: 1rem;
+}
+
+#new-reminder-form label {
+  font-weight: bold;
+  margin-bottom: 5px; 
+}
+
+.primary-button {
+  background-color: var(--mayo-med-blue);
+  color: var(--site-white);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.primary-button:hover {
+  background-color: var(--mayo-light-blue);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}

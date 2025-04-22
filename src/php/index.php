@@ -1,12 +1,10 @@
 <?php
-    require "./utils/height_utils.php";
-    $globals = require "globals.php";
+    require './utils/db_utils.php';
+    require './utils/height_utils.php';
 
     session_start();
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        doAction();
-    }
+    doAction();
 
     function doAction(): void {
         // Listen for events to dispatch
@@ -26,23 +24,6 @@
             echo 'No valid action provided!';
             die(500);
         }
-    }
-
-    function db_connect(): bool|mysqli {
-        global $globals;
-        $conn = mysqli_connect($globals['dbUrl'], $globals['dbUser'], $globals['dbPass']);
-
-        // Check for a connection error if there is any
-        if ($conn->connect_error) {
-            echo 'Unable to connect to database: ' . $conn->connect_error;
-            die(500);
-        }
-
-        return $conn;
-    }
-
-    function db_close($conn): void {
-        mysqli_close($conn);
     }
 
     function login(): void {
@@ -82,10 +63,10 @@
     function signUp(): void {
         $conn = db_connect();
 
-        $password = $_POST['password'];
-        $email = $_POST['email'];
-        $fName = $_POST['fName'];
-        $lName = $_POST['lName'];
+        $password = htmlspecialchars($_POST['password']);
+        $email = htmlspecialchars($_POST['email']);
+        $fName = htmlspecialchars($_POST['fName']);
+        $lName = htmlspecialchars($_POST['lName']);
         $hFeet = $_POST['hFeet'];
         $hInch = $_POST['hInch'];
 

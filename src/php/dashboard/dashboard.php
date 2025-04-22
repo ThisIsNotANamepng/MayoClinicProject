@@ -5,7 +5,7 @@
 
     function doAction() {
         if (isset($_GET['action'])) {
-            switch($_GET['action']) {
+            switch ($_GET['action']) {
                 case 'getName':
                     getName();
                     break;

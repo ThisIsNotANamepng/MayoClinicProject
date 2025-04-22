@@ -31,13 +31,11 @@
                 <table>
                     <tr>
                         <th>Email:</th>
-                        <!--TODO: placeholder-->
-                        <td>PlaceHolder@gmail.com</td>
+                        <td id="emailDisplay"></td>
                     </tr>
                     <tr>
                         <th>ID:</th>
-                        <!--TODO: placeholder-->
-                        <td>123</td>
+                        <td id="idDisplay"></td>
                     </tr>
                 </table>
             </div>
@@ -45,54 +43,59 @@
 
         <section id="account-settings-container">
             <h1>Account Settings</h1>
-            <table id="account-settings-table">
-                <tr class="account-setting">
-                    <th>First Name</th>
-                    <td contenteditable="true">Text</td>
-                </tr>
-                <tr class="account-setting">
-                    <th>Last Name</th>
-                    <td contenteditable="true">Text</td>
-                </tr>
-                <tr class="account-setting">
-                    <th>Date of Birth</th>
-                    <td><input type="date"></td>
-                </tr>
-                <tr class="account-setting">
-                    <th>Height (Feet)</th>
-                    <td><input type=number></td>
-                </tr>
-                <tr class="account-setting">
-                    <th>Height (Inches)</th>
-                    <td><input type=number></td>
-                </tr>
-                <tr class="account-setting">
-                    <th>Weight (Pounds)</th>
-                    <td><input type=number></td>
-                </tr>
-                <tr class="account-setting">
-                    <th>Allergies (Description)</th>
-                    <td contenteditable="true">Text</td>
-                </tr>
-                <tr class="account-setting">
-                    <th>Conditions (Description)</th>
-                    <td contenteditable="true">Text</td>
-                </tr>
-                <tr class="account-setting">
-                    <th>Medical History (Description)</th>
-                    <td contenteditable="true">Text</td>
-                </tr>
-            </table>
-            <div class="button selection">Save Changes</div>
-            <div class="button selection">Discard Changes</div>
+            <form id="account-settings-form">
+                <div class="account-setting">
+                    <label for="fname">First Name</label>
+                    <input name="fname" id="input-fname" class="account-setting" type="text">
+                </div>
+                <div class="account-setting">
+                    <label for="lname">Last Name</label>
+                    <input name="lname" id="input-lname" type="text">
+                </div>
+                <div class="account-setting">
+                    <label for="dob">Date of Birth</label>
+                    <input name="dob" id="input-dob" type="date">
+                </div>
+                <div class="account-setting">
+                    <label for="heightFeet">Height (Feet)</label>
+                    <input name="heightFeet" id="input-height-feet" type="number" min="0">
+                </div>
+                <div class="account-setting">
+                    <label for="heightInches">Height (Inches)</label>
+                    <input name="heightInches" id="input-height-inches" type="number" min="0">
+                </div>
+                <div class="account-setting">
+                    <label for="startWeight">Start Weight (Pounds)</label>
+                    <input name="startWeight" id="input-weight-pounds" type="number" min="0">
+                </div>
+                <div class="account-setting">
+                    <label for="allergies">Allergies (Description)</label>
+                    <textarea name="allergies" id="input-allergies"></textarea>
+                </div>
+                <div class="account-setting">
+                    <label for="conditions">Conditions (Description)</label>
+                    <textarea name="conditions" id="input-conditions"></textarea>
+                </div>
+                <div class="account-setting">
+                    <label for="history">Medical History (Description)</label>
+                    <textarea name="history" id="input-history"z></textarea>
+                </div>
+                <div id="account-settings-submit-container">
+                    <input type="submit" class="button selection" id="save-button" value="Save Changes">
+                    <input type="button" class="button selection" id="discard-button" value="Discard Changes">
+                </div>
+            </form>
+            <p id="response-message"></p>
         </section>
 
         <section id="account-administration-container">
             <h1>Administration</h1>
-            <div class="button selection">Log Out</div>
-            <div class="button selection">Reset Password</div>
-            <div class="button selection">Delete Account</div>
+            <div class="button selection" id="logout-button">Log Out</div>
+            <div class="button selection" id="reset-pass-button">Reset Password</div>
+            <div class="button selection" id="delete-acct-button">Delete Account</div>
         </section>
+
+        <script src="../../javascript/account/account.js"></script>
     </main>
 </body>
 </html>

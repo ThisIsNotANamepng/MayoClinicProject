@@ -1,15 +1,25 @@
 body {
     display: flex;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    background-image: url("../../resources/images/mayo_building.webp");
     background-size: cover;
-    background-image: url("../../resources/images/mayo_building.webp")
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
+
 #header {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 5%;
     min-height: 45px;
+    z-index: 1000;
     background-color: var(--mayo-dark-blue);
 }
 
@@ -24,30 +34,43 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-top: 5%;
-    width: 35%;
-    height: 70%;
-    min-height: 500px;
-    min-width: 500px;
-    border-radius: 15%;
+    margin-top: 2rem;
+    padding: 2rem;
+    width: 90%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 25px;
     background-color: rgba(240, 248, 255, 0.637);
     backdrop-filter: blur(5px);
 }
 
+#contents, .primary-button {
+    transition: all 0.3s ease;
+}
+
 #mayo-logo {
-    width: 35%;
-    margin-top: 5%;
+    width: 40%;
+    max-width: 200px;
+    min-width: 100px;
+    height: auto;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    display: block;
 }
 
 .primary-button {
-    width: 60%;
-    padding: 5%;
-    margin-top: 5%;
-    font-size: 20px;
+    width: 80%;
+    max-width: 300px;
+    padding: 1rem;
+    margin-top: 1rem;
+    font-size: 1.1rem;
     border-radius: 15px;
-    border-color: rgba(0, 0, 0, 0);
-    color:var(--site-white);
+    border: none;
+    color: var(--site-white);
     background-color: var(--mayo-med-blue);
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .primary-button:hover, .form-button:hover {
@@ -80,4 +103,43 @@ body {
     padding: 2px 0px 20px 0px;
     color: var(--site-white);
     background-color: var(--mayo-med-blue);
+}
+
+/*Added changes to make sure the login button adjusts with the screen */
+
+@media (max-width: 768px) {
+    #contents {
+        width: 90%;
+        min-width: unset;
+        height: auto;
+        border-radius: 25px;
+        margin-top: 15%;
+        padding: 20px;
+    }
+
+    #mayo-logo {
+        width: 60%;
+    }
+
+    .primary-button {
+        width: 80%;
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    .form-input {
+        width: 80%;
+    }
+
+    .form-button {
+        width: 60%;
+        height: auto;
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    #header > h1 {
+        font-size: 1.25rem;
+        padding: 0.5rem;
+    }
 }

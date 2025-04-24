@@ -61,4 +61,9 @@ body {
 .account-setting > textarea {
     resize: none;
     height: 50px;
+    width: 150px;
+}
+
+.account-setting > input {
+    width: 150px;
 }

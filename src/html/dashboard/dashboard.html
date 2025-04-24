@@ -16,14 +16,15 @@
         </span>
         <ul id="navbar">
             <li class="nav-element"><a class="selection" href="../account/account.html">Account</a></li>
-            <li class="nav-element"><a class="selection" href="">Reminders</a></li>
+            <li class="nav-element"><a class="selection" href="../reminders/reminders.html">Reminders</a></li>
             <li class="nav-element"><a class="selection" href="#section-log">Logging</a></li>
             <li class="nav-element"><a class="selection" href="">Reports</a></li>
             <li class="nav-element"><a class="selection" href="#section-guide">Guides</a></li>
         </ul>
     </header>
     <main id="content">
-        <!--TODO: get name of logged in user-->
+        <script src="../../javascript/utils/auth.js"></script>
+       
         <section class="section-container">
             <h1 id="welcome-message">Welcome!</h1>
         </section>
@@ -65,7 +66,7 @@
                         </tr>
                 </table>
                 <div class="selection-button">
-                    <a class="selection">Set a Reminder</a>
+                    <a class="selection" href="../reminders/reminders.html">Set a Reminder</a>
                 </div>
             </div>
         </section>

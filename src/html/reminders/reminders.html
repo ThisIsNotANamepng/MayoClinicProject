@@ -16,11 +16,11 @@
         <h2>Bariatric Patient Portal</h2>
     </span>
     <ul id="navbar">
+        <li class="nav-element"><a class="selection" href="../dashboard/dashboard.html">Dashboard</a></li>
         <li class="nav-element"><a class="selection" href="../account/account.html">Account</a></li>
-        <li class="nav-element"><a class="selection" href="../reminders/reminders.html">Reminders</a></li>
-        <li class="nav-element"><a class="selection" href="#section-log">Logging</a></li>
+        <li class="nav-element"><a class="selection" href="">Logging</a></li>
         <li class="nav-element"><a class="selection" href="">Reports</a></li>
-        <li class="nav-element"><a class="selection" href="#section-guide">Guides</a></li>
+        <li class="nav-element"><a class="selection" href="">Guides</a></li>
     </ul>
 </header>
   
@@ -97,42 +97,7 @@
     </section>
   </main>
   <footer id="footer"></footer>
-  <script>
-    function handleReminderSubmit(event) {
-      event.preventDefault();
-      var task = document.getElementById('task').value;
-      var due = document.getElementById('due').value;
-      if (task && due) {
-        alert("New Reminder added: " + task + " at " + due);
-        
-       
-        var tr = document.createElement('tr');
-        
-        var tdTask = document.createElement('td');
-        tdTask.textContent = task;
-        tr.appendChild(tdTask);
-        
-        var tdDue = document.createElement('td');
-        tdDue.textContent = due;
-        tr.appendChild(tdDue);
-        
-        
-        document.getElementById('reminder-table-body').appendChild(tr);
-        
-       
-        document.getElementById('task').value = "";
-        document.getElementById('due').value = "";
-      } else {
-        alert("Please fill in both fields.");
-      }
-    }
-
-    var reminderForm = document.getElementById('new-reminder-form');
-    reminderForm.addEventListener('submit', handleReminderSubmit, false);
-  </script>
-
-
-  
+  <script src="../../javascript/reminders/reminders.js"></script>
 </body>
 </html>
 

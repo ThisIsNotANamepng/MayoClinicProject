@@ -69,6 +69,7 @@
         $lName = htmlspecialchars($_POST['lName']);
         $hFeet = $_POST['hFeet'];
         $hInch = $_POST['hInch'];
+        $weight = $_POST['weight'];
 
         // Get the height decimal
         $height = toDecimal($hFeet,$hInch);

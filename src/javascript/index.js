@@ -33,6 +33,13 @@ function displayForm(status) {
         var heightFeetInput = createInput('number', false, 'Height (Feet)', 'hFeet');
         var heightInchesInput = createInput('number', false, 'Height (Inches)', 'hInch');
         var weightInput = createInput('number', false, 'Weight (lbs)', 'weight');
+
+        // Add constraints
+        heightFeetInput.min = 0
+        heightFeetInput.max = 7;
+        heightInchesInput.min = 0;
+        heightInchesInput.max = 11;
+        weightInput.min = 0;
     }
 
     let submitBtn = document.createElement('input');

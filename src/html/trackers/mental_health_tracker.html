@@ -4,9 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mental Health Tracker</title>
+    <link rel="stylesheet" href="../../css/globals.css">
+    <link rel="stylesheet" href="../../css/trackers/mental_health_tracker.css">
     <!--Has forms for entering mental health data-->
 </head>
 <body>
-    
+    <main class="mental-health-form-container">
+        <h1>Mental Health Report Form</h1>
+        <form id="mentalHealthForm" action="/submit-mental-health-data" method="post">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="mood">Overall Mood:</label>
+            <select id="mood" name="mood" required>
+                <option value="">Select</option>
+                <option value="happy">Happy</option>
+                <option value="calm">Calm</option>
+                <option value="anxious">Anxious</option>
+                <option value="stressed">Stressed</option>
+                <option value="sad">Sad</option>
+                <option value="angry">Angry</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="stress">Stress Level (1-10):</label>
+            <input type="range" id="stress" name="stress" min="1" max="10" required>
+
+            <label for="sleep">Sleep Duration (hours):</label>
+            <input type="number" id="sleep" name="sleep" min="0" step="0.5" required>
+
+            <label for="emotions">Emotions You Felt Today:</label>
+            <select id="emotions" name="emotions[]" multiple size="6" required>
+                <option value="joy">Joy</option>
+                <option value="gratitude">Gratitude</option>
+                <option value="fear">Fear</option>
+                <option value="anger">Anger</option>
+                <option value="loneliness">Loneliness</option>
+                <option value="hope">Hope</option>
+                <option value="shame">Shame</option>
+                <option value="excitement">Excitement</option>
+                <option value="peace">Peace</option>
+                <option value="confusion">Confusion</option>
+            </select>
+
+            <label for="notes">Describe Your Emotional State:</label>
+            <textarea id="notes" name="notes" rows="4" placeholder="Write a brief reflection on your emotions today..." required></textarea>
+
+            <button type="submit">Generate Mental Health Report</button>
+        </form>
+    </main>
 </body>
 </html>

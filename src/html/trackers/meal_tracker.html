@@ -4,9 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meal Tracker</title>
+    <link rel="stylesheet" href="../../css/globals.css">
+    <link rel="stylesheet" href="../../css/trackers/meal_tracker.css">
     <!--Has forms for entering meal data-->
 </head>
 <body>
-    
+    <main class="meal-form-container">
+        <h1>Meal Report Form</h1>
+        <form id="mealForm" action="/submit-meal-data" method="post">
+            <label for="mealDate">Date:</label>
+            <input type="date" id="mealDate" name="mealDate" required>
+
+            <label for="mealType">Meal Type:</label>
+            <select id="mealType" name="mealType" required>
+                <option value="">Select</option>
+                <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
+                <option value="snack">Snack</option>
+            </select>
+
+            <label for="ingredients">Ingredients:</label>
+            <textarea id="ingredients" name="ingredients" rows="4" placeholder="List ingredients used..." required></textarea>
+
+            <label for="calories">Calories (kcal):</label>
+            <input type="number" id="calories" name="calories" min="0" required>
+
+            <label for="protein">Protein (g):</label>
+            <input type="number" id="protein" name="protein" min="0" required>
+
+            <label for="carbs">Carbohydrates (g):</label>
+            <input type="number" id="carbs" name="carbs" min="0" required>
+
+            <label for="fats">Fats (g):</label>
+            <input type="number" id="fats" name="fats" min="0" required>
+
+            <label for="notes">Additional Notes:</label>
+            <textarea id="notes" name="notes" rows="3" placeholder="Optional notes about the meal..."></textarea>
+
+            <button type="submit">Generate Meal Report</button>
+        </form>
+    </main>
 </body>
 </html>

@@ -1,6 +1,7 @@
 <?php
     require './utils/db_utils.php';
     require './utils/height_utils.php';
+    require './utils/activity_utils.php';
 
     session_start();
 
@@ -46,9 +47,12 @@
         // Return whether the creds are valid
         if ($statement->get_result()->num_rows == 1) {
             echo 'Login Successful!';
-           
+
             // Create Session
             setSession($email);
+
+            // Create activity log
+            post_activity(Activity_Status::LOGIN);
            
             http_response_code(200);
         } else {

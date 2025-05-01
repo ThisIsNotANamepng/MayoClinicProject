@@ -24,7 +24,7 @@ CREATE TABLE UserDetails (
 );
 
 CREATE TABLE Reminder (
-	userId			int PRIMARY KEY,
+	userId			int NOT NULL,
     description		varchar(100),
     dueDate			date,
     FOREIGN KEY (userId) REFERENCES Account(id)
@@ -32,6 +32,7 @@ CREATE TABLE Reminder (
 
 -- user goals to configure --
 CREATE TABLE UserGoals (
+    userId		            int PRIMARY KEY,
 	dailyExercise			time,
     dailyCaloriesConsumed	float,
     dailyCaloriesBurned		float,
@@ -39,14 +40,14 @@ CREATE TABLE UserGoals (
 );
 
 CREATE TABLE WeightReport (
-	userId	int PRIMARY KEY,
+	userId	int NOT NULL,
 	weight	float NOT NULL,
     logDate	date NOT NULL,
     FOREIGN KEY (userId) REFERENCES Account(id)
 );
 
 CREATE TABLE ExerciseReport (
-	userId 			int PRIMARY KEY,
+	userId 			int NOT NULL,
     category		ENUM ('Aerobic', 'Strength', 'Stretching', 'Other')  NOT NULL,
     duration		time NOT NULL,
     burnedCalories  float NOT NULL,
@@ -55,7 +56,7 @@ CREATE TABLE ExerciseReport (
 );
 
 CREATE TABLE MealReport (
-	userId			int PRIMARY KEY,
+	userId			int NOT NULL,
     category		ENUM ('Fruit', 'Vegetable', 'Grain', 'Protein', 'Dairy', 'Fat', 'Snack', 'Sweet', 'Beverage') NOT NULL,
     description		varchar(25) NOT NULL,
     calories		float NOT NULL,
@@ -64,10 +65,17 @@ CREATE TABLE MealReport (
 );
 
 CREATE TABLE MentalHealthReport (
-	userId				int PRIMARY KEY,
+	userId				int NOT NULL,
     -- some score determined by the response in the applet (ex add up question answers ranked on scale 1-10) --
     anxietyScore		int NOT NULL,
     depressionScore		int NOT NULL,
     logDate				date NOT NULL,
     FOREIGN KEY (userID) REFERENCES Account(id)
-)
+);
+
+CREATE TABLE UserActivity (
+    userId              int NOT NULL,
+    activityDescription varchar(25) NOT NULL,
+    activityTime        date NOT NULL,
+    FOREIGN KEY (userId) REFERENCES Account(id)
+);

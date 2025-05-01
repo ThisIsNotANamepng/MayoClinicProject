@@ -5,9 +5,8 @@ html {
 
 body {
     margin: 0;
-    width: 100vw;
+    width: 99vw;
     height: 100vh;
-    overflow-x: hidden;
 }
 
 #content {
@@ -53,7 +52,7 @@ body {
     width: 50%;
 }
 
-#log-options {
+.tracker-options {
     margin: 0;
     padding: 0;
     width: 100%;
@@ -105,41 +104,9 @@ body {
     height: 100%
 }
 
-/*This fixes the issue for navbar in smaller screens*/
-@media (max-width: 768px) {
-    header {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 1rem;
-        text-align: center;
-    }
-
-    #logo-title-display {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    #navbar {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.75rem;
-        padding: 0;
-        margin-top: 1rem;
-        list-style: none;
-    }
-
-    .nav-element {
-        display: block;
-        padding: 0.5rem 1rem;
-        font-size: 1rem;
-    }
-
-    .selection {
-        text-decoration: none;
-        color: inherit;
+@media (max-width: 1100px) {
+    /* When navbar is collapsed vertically recover top space for contents */
+    .section-container:first-of-type {
+        padding-top: 0;
     }
 }

@@ -84,8 +84,8 @@ body {
 
 .guide-container {
     align-self: center;
-    width: 45%;
-    max-height: 600px;
+    width: 40%;
+    max-height: 500px;
     border-radius: 50px;
     background-color: var(--mayo-med-blue);
     overflow: hidden;

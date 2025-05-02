@@ -1,0 +1,119 @@
+:root {
+    --mayo-dark-blue: #012d61;
+    --mayo-med-blue: #005dac;
+    --mayo-light-blue: #2273bb;
+    --mayo-white-blue: #e1f0ff;
+    --site-white: aliceblue;
+    --font-one: Arial, Helvetica, sans-serif;
+    --font-two: Georgia, 'Times New Roman', Times, serif;
+}
+
+html {
+    scroll-padding-top: 6rem;
+}
+  
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+}
+  
+/* Fixed header with logo and white text */
+#guide-header {
+    background-color: var(--mayo-white-blue);
+    color: black;
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    z-index: 1000;
+}
+  
+#mayo-logo {
+    width: 50px;
+    height: auto;
+    margin-right: 1rem;
+}
+  
+#guide-header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    flex-grow: 1;
+    text-align: center;
+}
+  
+/* Push content down so it doesn't go behind fixed header */
+.guide-container {
+    max-width: 700px;
+    background-color: var(--mayo-med-blue);
+    color: var(--site-white);
+    margin: 200px auto 2rem auto; /* Push down below header */
+    padding: 2rem;
+    border-radius: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 90%;
+}
+  
+.guide-container ul {
+    text-align: left;
+    padding-left: 1.5rem;
+}
+  
+.guide-container a {
+    color: var(--site-white);
+    text-decoration: underline;
+}
+
+.back-button-container {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+  
+.back-button {
+    display: inline-block;
+    background-color: var(--mayo-light-blue);
+    color: var(--site-white);
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+  
+.back-button:hover {
+    background-color: var(--mayo-dark-blue);
+}
+  
+  /* Responsive header and container */
+  @media (max-width: 768px) {
+    #guide-header {
+      flex-direction: column;
+      align-items: center;
+      height: auto;
+      padding: 1rem;
+      text-align: center;
+    }
+  
+    #guide-header h1 {
+      font-size: 1.2rem;
+    }
+  
+    #mayo-logo {
+      margin: 0 0 0.5rem 0;
+    }
+  
+    .guide-container {
+      padding: 1rem;
+      width: 95%;
+      margin-top: 120px;
+    }
+  }
+  

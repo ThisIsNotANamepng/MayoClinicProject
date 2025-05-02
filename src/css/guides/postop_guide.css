@@ -7,7 +7,7 @@
     --font-one: Arial, Helvetica, sans-serif;
     --font-two: Georgia, 'Times New Roman', Times, serif;
 }
-  
+
 html {
     scroll-padding-top: 6rem;
 }
@@ -15,10 +15,13 @@ html {
 body {
     margin: 0;
     padding: 0;
-    font-family: var(--font-one);
+    width: 100vw;
+    min-height: 100vh;
     background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
 }
   
+/* Fixed header with logo and white text */
 #guide-header {
     background-color: var(--mayo-white-blue);
     color: black;
@@ -46,11 +49,12 @@ body {
     text-align: center;
 }
   
+/* Push content down so it doesn't go behind fixed header */
 .guide-container {
     max-width: 700px;
     background-color: var(--mayo-med-blue);
     color: var(--site-white);
-    margin: 200px auto 2rem auto;
+    margin: 200px auto 2rem auto; /* Push down below header */
     padding: 2rem;
     border-radius: 30px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -88,6 +92,8 @@ body {
     background-color: var(--mayo-dark-blue);
 }
   
+  
+  /* Responsive header and container */
   @media (max-width: 768px) {
     #guide-header {
       flex-direction: column;
@@ -111,4 +117,3 @@ body {
       margin-top: 120px;
     }
   }
-  

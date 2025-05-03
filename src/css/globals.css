@@ -82,6 +82,7 @@ body {
 
 .selection:hover {
     background-color: var(--mayo-light-blue);
+    box-shadow: 0px 5px 15px rgb(99, 99, 99);
 }
 
 /* fixed site footer */

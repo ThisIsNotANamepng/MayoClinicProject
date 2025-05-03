@@ -12,10 +12,10 @@
     <script src="../../javascript/utils/auth.js"></script>
 
     <header id="main-header">
-        <span id="logo-title-display">
+        <div id="logo-title-display">
             <img src="../../../resources/images/mayo_logo_transparent.jpg" alt="Mayo Clinic Logo">
             <h2>Bariatric Patient Portal</h2>
-        </span>
+        </div>
         <ul id="navbar">
             <li class="nav-element"><a class="selection" href="../dashboard/dashboard.html">Dashboard</a></li>
             <li class="nav-element"><a class="selection" href="../reminders/reminders.html">Reminders</a></li>
@@ -46,40 +46,40 @@
             <h1>Account Settings</h1>
             <form id="account-settings-form">
                 <div class="account-setting">
-                    <label for="fname">First Name</label>
+                    <label for="input-fname">First Name</label>
                     <input name="fname" id="input-fname" class="account-setting" type="text">
                 </div>
                 <div class="account-setting">
-                    <label for="lname">Last Name</label>
+                    <label for="input-lname">Last Name</label>
                     <input name="lname" id="input-lname" type="text">
                 </div>
                 <div class="account-setting">
-                    <label for="dob">Date of Birth</label>
+                    <label for="input-dob">Date of Birth</label>
                     <input name="dob" id="input-dob" type="date">
                 </div>
                 <div class="account-setting">
-                    <label for="heightFeet">Height (Feet)</label>
+                    <label for="input-height-feet">Height (Feet)</label>
                     <input name="heightFeet" id="input-height-feet" type="number" min="0" max="7">
                 </div>
                 <div class="account-setting">
-                    <label for="heightInches">Height (Inches)</label>
+                    <label for="input-height-inches">Height (Inches)</label>
                     <input name="heightInches" id="input-height-inches" type="number" min="0" max="11">
                 </div>
                 <div class="account-setting">
-                    <label for="startWeight">Start Weight (Pounds)</label>
+                    <label for="input-weight-pounds">Start Weight (Pounds)</label>
                     <input name="startWeight" id="input-weight-pounds" type="number" min="0">
                 </div>
                 <div class="account-setting">
-                    <label for="allergies">Allergies (Description)</label>
+                    <label for="input-allergies">Allergies (Description)</label>
                     <textarea name="allergies" id="input-allergies"></textarea>
                 </div>
                 <div class="account-setting">
-                    <label for="conditions">Conditions (Description)</label>
+                    <label for="input-conditions">Conditions (Description)</label>
                     <textarea name="conditions" id="input-conditions"></textarea>
                 </div>
                 <div class="account-setting">
-                    <label for="history">Medical History (Description)</label>
-                    <textarea name="history" id="input-history"z></textarea>
+                    <label for="input-history">Medical History (Description)</label>
+                    <textarea name="history" id="input-history"></textarea>
                 </div>
                 <div id="account-settings-submit-container">
                     <input type="submit" class="button selection" id="save-button" value="Save Changes">

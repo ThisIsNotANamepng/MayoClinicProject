@@ -142,4 +142,11 @@ body {
     .selection {
         border-radius: 30px;
     }
+
+    /* Hide logo to prevent clipping when navbar displayed vertically and height reduced enough */
+    @media (max-height: 650px) {
+        #logo-title-display {
+            visibility: hidden;
+        }
+    }
 }

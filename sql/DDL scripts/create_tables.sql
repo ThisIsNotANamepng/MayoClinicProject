@@ -26,7 +26,7 @@ CREATE TABLE UserDetails (
 CREATE TABLE Reminder (
 	userId			int NOT NULL,
     description		varchar(100),
-    dueDate			date,
+    dueDate			datetime,
     FOREIGN KEY (userId) REFERENCES Account(id)
 );
 
@@ -76,6 +76,6 @@ CREATE TABLE MentalHealthReport (
 CREATE TABLE UserActivity (
     userId              int NOT NULL,
     activityDescription varchar(25) NOT NULL,
-    activityTime        date NOT NULL,
+    activityTime        datetime NOT NULL,
     FOREIGN KEY (userId) REFERENCES Account(id)
 );

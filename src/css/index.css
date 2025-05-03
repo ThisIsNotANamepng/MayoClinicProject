@@ -42,6 +42,7 @@ body {
     border-radius: 25px;
     background-color: rgba(240, 248, 255, 0.637);
     backdrop-filter: blur(5px);
+    overflow: hidden;
 }
 
 #contents, .primary-button {
@@ -105,6 +106,12 @@ body {
     background-color: var(--mayo-med-blue);
 }
 
+/* override globals */
+@media (max-width: 1100px) {
+    main {
+        margin-left: 0;
+    }
+}
 /*Added changes to make sure the login button adjusts with the screen */
 
 @media (max-width: 768px) {
@@ -132,7 +139,6 @@ body {
     }
 
     .form-button {
-        width: 60%;
         height: auto;
         font-size: 16px;
         padding: 10px;

@@ -1,14 +1,18 @@
 <?php
     require '../utils/db_utils.php';
     require '../utils/height_utils.php';
+    require '../utils/activity_utils.php';
     session_start();
+
+    // Assume 500 unless specified otherwise
+    http_response_code(500);
 
     doAction();
 
     function doAction(): void {
+        $action = $_GET['action'];
         switch ($_SERVER['REQUEST_METHOD']) {
-            case "GET":
-                $action = $_GET['action'];
+            case "GET":              
                 if (isset($action)) {
                     switch ($action) {
                         case 'getDetails':
@@ -17,12 +21,15 @@
                         case 'getSettings':
                             populateSettings();
                             break;
+                        case 'logout':
+                            logout();
+                            break;
                         default:
                             echo 'Invalid action ' . $action;
-                            die(500);
+                            die();
                     }
                 } else {
-                    die(500);
+                    die();
                 }
                 break;
             case "POST":
@@ -135,6 +142,9 @@
         $conn->commit();
         
         if ($result1 && $result2) {
+            // Add activity log
+            post_activity(Activity_Status::SETTINGS_CHANGED);
+
             echo 'User details updated successfully';
             http_response_code(200);
         } else {
@@ -143,5 +153,15 @@
         }
 
         db_close($conn);
+    }
+
+    function logout() {
+        // clear the session array
+        $_SESSION = array();
+    
+        // close the session
+        session_destroy();
+        http_response_code(200);
+        echo "Logged out successfully!";
     }
 ?>

@@ -1,8 +1,11 @@
 const settingsForm = document.getElementById('account-settings-form');
+const logoutBtn = document.getElementById('logout-button');
 
 loadUserSettingsAndDetails();
 
 settingsForm.addEventListener('submit', (event) => saveUserSettings(event));
+logoutBtn.addEventListener('click', logout);
+
 document.getElementById('discard-button').addEventListener('click', loadUserSettings);
 
 /**
@@ -19,7 +22,6 @@ function loadUserSettingsAndDetails() {
 }
 
 function loadUserSettings() {
-    console.log('test');
      // Load settings section
      fetch('../../php/account/account.php?action=getSettings')
         .then((resp) => resp.json())
@@ -78,6 +80,18 @@ function saveUserSettings(event) {
             }
         })
         .catch(err => console.error("Error while saving settings: " + err));
-    }
+}
+
+/**
+ * Logs the user out
+ */
+function logout() {
+    fetch('../../php/account/account.php?action=logout')
+        .then(resp => {
+            if (resp.ok) {
+                window.location.href = "/src/html/index.html";
+            }
+        });
+}
 
 //TODO: user goals?

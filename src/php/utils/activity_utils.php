@@ -63,4 +63,36 @@
 
         return true;
     }
+
+    /**
+     * Retrieves up to $maxResults activity logs from database and populates returned array with logs
+     * @param int $maxResults
+     * @return array<array|bool|null>
+     */
+    function get_activity(int $maxResults): array {
+        if (!isset($_SESSION['id'])) {
+            echo 'Failed to retrieve user id';
+            die();
+        }
+
+        $id = $_SESSION['id'];
+
+        $conn = db_connect();
+      
+        $result = $conn->query("SELECT * FROM mayo_bariatric_website.useractivity WHERE userId = $id ORDER BY activityTime DESC LIMIT $maxResults");
+
+        db_close($conn);
+
+        if (!$result) {
+            echo 'Failed to retrieve user activity';
+            die();
+        }
+
+        // Add all result arrays to array
+        $activityLogs = [];
+        while ($activityLog = $result->fetch_array()) {
+            $activityLogs[] = $activityLog;
+        }
+        return $activityLogs;
+    }
 ?>

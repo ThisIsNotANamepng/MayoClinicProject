@@ -1,7 +1,7 @@
 CREATE TABLE Account (
 	id			int PRIMARY KEY AUTO_INCREMENT,
 	email		varchar(50) UNIQUE NOT NULL,
-    password	varchar(50) NOT NULL,
+    password	varchar(255) NOT NULL,
     name		varchar(50) NOT NULL -- first name
 );
 

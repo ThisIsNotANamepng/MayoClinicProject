@@ -3,6 +3,9 @@
     require './utils/height_utils.php';
     require './utils/activity_utils.php';
 
+    // Assume 500 unless specified otherwise
+    http_response_code(500);
+
     session_start();
 
     doAction();
@@ -19,11 +22,11 @@
                 break;
             default:
                 echo 'Invalid action: ' . $_GET['action'];
-                die(500);
+                die();
             }
         } else {
             echo 'No valid action provided!';
-            die(500);
+            die();
         }
     }
 
@@ -36,16 +39,26 @@
 
         // Validate credentials
         $statement = $conn->prepare(
-        'SELECT * 
+        'SELECT password 
                 FROM mayo_bariatric_website.account 
-                WHERE email = ? AND password = ?'
+                WHERE email = ?'
         );
 
-        $statement->bind_param('ss', $email, $password);
+        $statement->bind_param('s', $email);
         $statement->execute();
-        
+    
+        $result = $statement->get_result();
+        $storedPassword = "";
+        if ($result->num_rows > 0) {
+            $storedPassword = $result->fetch_assoc()['password'];
+        } else {
+            echo 'Could not identify account with the given email';
+            http_response_code(404);
+            die();
+        }
+
         // Return whether the creds are valid
-        if ($statement->get_result()->num_rows == 1) {
+        if (password_verify($password, $storedPassword)) {
             echo 'Login Successful!';
 
             // Create Session
@@ -57,7 +70,7 @@
             http_response_code(200);
         } else {
            // Send error response [Unauthorized]
-           echo 'Invalid email and/or password provided!';
+           echo 'Invalid password provided!';
            http_response_code(401);
         }
 
@@ -66,8 +79,7 @@
 
     function signUp(): void {
         $conn = db_connect();
-
-        $password = htmlspecialchars($_POST['password']);
+        $password = password_hash(htmlspecialchars($_POST['password']), PASSWORD_DEFAULT);
         $email = htmlspecialchars($_POST['email']);
         $fName = htmlspecialchars($_POST['fName']);
         $lName = htmlspecialchars($_POST['lName']);
@@ -109,7 +121,6 @@
         
         if (!($statement->execute())) {
             echo 'Error creating account: ' . $statement->error;
-            http_response_code(500);
             db_close($conn);
             return;
         }
@@ -134,7 +145,6 @@
 
         if (!$statement->execute()) {
             echo 'Error creating account details: ' . $statement->error;
-            http_response_code(500);
             db_close($conn);
             return;
         }
@@ -146,6 +156,9 @@
 
         // Create Session for new account user
         setSession($email);
+
+        // Update activity
+        post_activity(Activity_Status::CREATE_ACCT);
 
         http_response_code(200);
         db_close($conn);

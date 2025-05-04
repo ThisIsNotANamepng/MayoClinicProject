@@ -79,12 +79,13 @@
         <label for="task">Task:</label><br>
         <input type="text" id="task" name="task" placeholder="e.g., Take Meds"><br><br>
         <label for="due">Due Date & Time:</label><br>
-        <input type="datetime-local" id="due" name="due"><br><br>
+        <input type="datetime-local" max="2100-01-1T00:00:01" id="due" name="due"><br><br>
         <button type="submit" class="primary-button">Add Reminder</button>
       </form>
     </section>
   </main>
   <footer id="footer"></footer>
+  <script src="../../javascript/utils/date_utils.js"></script>
   <script src="../../javascript/reminders/reminders.js"></script>
 </body>
 </html>

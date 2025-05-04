@@ -50,7 +50,7 @@ function handleReminderSubmit(event) {
             tr.appendChild(tdTask);
             
             var tdDue = document.createElement('td');
-            tdDue.textContent = json[x].dueDate;
+            tdDue.textContent = formatDateTime(json[x].dueDate);
             tr.appendChild(tdDue);
             document.getElementById('reminder-table-body').appendChild(tr);
           }

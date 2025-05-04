@@ -40,7 +40,8 @@ function loadActivityTable() {
                 
                 let timeCell = document.createElement('td');
                 let descCell = document.createElement('td');
-                timeCell.innerHTML = json[x].activityTime;
+                
+                timeCell.innerHTML = formatDateTime(json[x].activityTime);
                 descCell.innerHTML = json[x].activityDescription;
                 row.appendChild(timeCell);
                 row.appendChild(descCell);
@@ -63,16 +64,21 @@ function loadRemindersTable() {
         .then(resp => resp.json())
         .then(json => {
             for (let x in json) {
+                if (x == 0) {
+                    // Remove placeholder entry
+                    let placeHolderEntry = document.getElementById('temp-reminder-entry');
+                    placeHolderEntry.parentNode.removeChild(placeHolderEntry);
+                }
+
                 let row = document.createElement('tr');
                 row.className = 'table-entry';
                 
                 let taskCell = document.createElement('td');
                 let dueCell = document.createElement('td');
                 taskCell.innerHTML = json[x].description;
-                dueCell.innerHTML = json[x].dueDate;
+                dueCell.innerHTML = formatDateTime(json[x].dueDate);
                 row.appendChild(taskCell);
                 row.appendChild(dueCell);
-
 
                 // Append entry to table
                 reminderTable.appendChild(row);

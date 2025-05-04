@@ -4,6 +4,7 @@
      * Contains status codes to be used for post_activity function param
      */
     enum Activity_Status {
+        case CREATE_ACCT;
         case LOGIN;
         case SETTINGS_CHANGED;
         case REMINDER_SET;
@@ -24,6 +25,9 @@
 
         $activityType = "";
         switch($status) {
+            case Activity_Status::CREATE_ACCT:
+                $activityType = "Created Account";
+                break;
             case Activity_Status::LOGIN:
                 $activityType = "Logged In";
                 break;

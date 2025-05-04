@@ -38,9 +38,9 @@ function onDataRecieved(data) {
     });
 
     // Macronutrient Totals
-    const totalProtein = proteins.reduce((a, b) => a + b, 0);
-    const totalCarbs = carbs.reduce((a, b) => a + b, 0);
-    const totalFats = fats.reduce((a, b) => a + b, 0);
+    const totalProtein = proteins.reduce((a, b) => parseInt(a, 10) + parseInt(b, 10), 0);
+    const totalCarbs = carbs.reduce((a, b) =>parseInt(a, 10) + parseInt(b, 10), 0);
+    const totalFats = fats.reduce((a, b) => parseInt(a, 10) + parseInt(b, 10), 0);
 
     new Chart(document.getElementById('nutrientChart'), {
       type: 'bar',

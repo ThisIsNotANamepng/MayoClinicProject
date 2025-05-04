@@ -4,9 +4,9 @@
  * @returns the foramtted time
  */
 function formatDateTime(date) {
-    // Adding " GMT+0200" the date object will understand to convert to local time
-    // For some reason the implementation is giving back CEST time zo
-    let formattedDate = new Date(date + " GMT+0200");
+    // Adding " GMT+200" the date object will understand to convert to local time
+    // For some reason the implementation is giving back CEST time zone
+    let formattedDate = new Date(date + " GMT+200");
     return formattedDate.toLocaleDateString() + " " + formattedDate.toLocaleTimeString();
 }
 

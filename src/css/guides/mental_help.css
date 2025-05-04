@@ -17,6 +17,7 @@ body {
     padding: 0;
     font-family: var(--font-one);
     background-color: #f5f5f5;
+    overflow: hidden;
 }
   
 #guide-header {

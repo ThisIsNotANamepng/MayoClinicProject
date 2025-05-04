@@ -30,22 +30,6 @@ CREATE TABLE Reminder (
     FOREIGN KEY (userId) REFERENCES Account(id)
 );
 
--- user goals to configure --
-CREATE TABLE UserGoals (
-    userId		            int PRIMARY KEY,
-	dailyExercise			time,
-    dailyCaloriesConsumed	float,
-    dailyCaloriesBurned		float,
-    desiredWeight			float
-);
-
-CREATE TABLE WeightReport (
-	userId	int NOT NULL,
-	weight	float NOT NULL,
-    logDate	date NOT NULL,
-    FOREIGN KEY (userId) REFERENCES Account(id)
-);
-
 CREATE TABLE ExerciseReport (
 	userId 			int NOT NULL,
     category		ENUM ('sedentary', 'light', 'moderate', 'active', 'extra_active')  NOT NULL,

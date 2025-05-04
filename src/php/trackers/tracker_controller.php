@@ -82,6 +82,7 @@ function postFitnessData() {
 
     if ($result) {
         http_response_code(200);
+        post_activity(Activity_Status::FIT_TRACK);
         echo 'User data uploaded successfully!';
     } else {
         echo 'There was an error inserting user data into the database!';
@@ -118,6 +119,7 @@ function postMentalData() {
 
     if ($result) {
         http_response_code(200);
+        post_activity(Activity_Status::MENTAL_TRACK);
         echo 'User data uploaded successfully!';
     } else {
         echo 'There was an error inserting user data into the database!';
@@ -157,6 +159,7 @@ function postMealData() {
 
     if ($result) {
         http_response_code(200);
+        post_activity(Activity_Status::MEAL_TRACK);
         echo 'User data uploaded successfully!';
     } else {
         echo 'There was an error inserting user data into the database!';

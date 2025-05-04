@@ -7,6 +7,7 @@
   <!--Display and edit reminders, dashboard has a window with upcoming reminders, here you can edit them and see all of them-->
   <link rel="stylesheet" href="../../../src/css/globals.css">
   <link rel="stylesheet" href="../../../src/css/reminders/reminders.css">
+  <script src="../../javascript/utils/auth.js"></script>
 </head>
 <body>
   <header id="main-header">
@@ -27,9 +28,10 @@
     <section class="section-container" id="section-appointments">
       <h2 class="section-header">Appointments</h2>
       <div id="appointment-board">
-        <a href="../appointments/appointments.html">Go to Appointment Board</a>
+        <a href="https://www.mayoclinichealthsystem.org/locations/eau-claire/services-and-treatments">Go to Appointment Board</a>
       </div>
       <div id="appointments-view">
+        <!--Example appointments that would be grabbed from the mayo clinic's system-->
         <table class="table-entry">
           <thead>
             <tr>
@@ -87,6 +89,7 @@
   <footer id="footer"></footer>
   <script src="../../javascript/utils/date_utils.js"></script>
   <script src="../../javascript/reminders/reminders.js"></script>
+  <script src="../../javascript/utils/footer_data.js"></script>
 </body>
 </html>
 

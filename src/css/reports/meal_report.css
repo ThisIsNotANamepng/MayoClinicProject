@@ -1,3 +1,7 @@
+body {
+    overflow-x: hidden;
+}
+
 #report-container {
     overflow: hidden;
     margin: 10% 15% auto 15%;
@@ -21,6 +25,7 @@
     text-decoration: none;
     font-weight: bold;
     transition: background-color 0.3s ease;
+    margin-bottom: 40px;
 }
   
 .back-button:hover {

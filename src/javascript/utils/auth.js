@@ -1,4 +1,3 @@
-// TODO: add this script to all pages
 isLoggedIn();
 
 // Makes a request to backend to determine if the access is being made by a logged in user

@@ -93,5 +93,3 @@ function logout() {
             }
         });
 }
-
-//TODO: user goals?

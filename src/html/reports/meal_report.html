@@ -9,7 +9,21 @@
     <!--Has a report displaying your meal data and recommendations on that data-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body>
+    <body id="meal-form-container">
+      <header id="main-header">
+        <div id="logo-title-display">
+            <img src="../../../resources/images/mayo_logo_transparent.jpg" alt="Mayo Clinic Logo">
+            <h2>Bariatric Patient Portal</h2>
+        </div>
+        <ul id="navbar">
+            <li class="nav-element"><a class="selection" href="../dashboard/dashboard.html">Dashboard</a></li>
+            <li class="nav-element"><a class="selection" href="../account/account.html">Account</a></li>
+            <li class="nav-element"><a class="selection" href="../reminders/reminders.html">Reminders</a></li>
+            <li class="nav-element"><a class="selection" href="../dashboard/dashboard.html#section-log">Logs</a></li>
+            <li class="nav-element"><a class="selection" href="../dashboard/dashboard.html#section-guide">Guides</a></li>
+        </ul>
+    </header>
+
     <main id="report-container">
       <h1>Meal Tracker Dashboard</h1>
       <div class="chart-container">

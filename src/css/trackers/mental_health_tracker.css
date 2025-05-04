@@ -77,6 +77,10 @@ button[type="submit"]:hover {
     background-color: var(--mayo-light-blue);
 }
 
+#feedback {
+    text-align: center;
+}
+
 .back-button-container {
     text-align: center;
     margin-bottom: 2rem;

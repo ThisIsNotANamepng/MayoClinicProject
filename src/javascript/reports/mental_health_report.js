@@ -1,9 +1,9 @@
-fetch('/mental-health-data')
+fetch('../../php/trackers/tracker_controller.php?action=getMentalData')
         .then(res => res.json())
         .then(data => {
-          const dates = data.map(entry => entry.date);
-          const stressLevels = data.map(entry => entry.stress);
-          const sleepDurations = data.map(entry => entry.sleep);
+          const dates = data.map(entry => entry.logDate);
+          const stressLevels = data.map(entry => entry.stressScore);
+          const sleepDurations = data.map(entry => entry.sleepDuration);
           const moods = data.map(entry => entry.mood);
   
           // Stress Chart

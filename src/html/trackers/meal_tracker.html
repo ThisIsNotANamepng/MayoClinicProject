@@ -25,7 +25,8 @@
 
     <main class="meal-form-container">
         <h1>Meal Tracker Form</h1>
-        <form id="mealForm" action="/submit-meal-data" method="post">
+        <p id="feedback"></p>
+        <form id="mealForm" method="post">
             <label for="mealDate">Date:</label>
             <input type="date" id="mealDate" name="mealDate" required>
 
@@ -62,6 +63,8 @@
         <div class="back-button-container">
             <a href="../dashboard/dashboard.html#section-log" class="back-button">← Back to Dashboard</a>
         </div>
+
+        <script src="../../javascript/trackers/meal_tracker.js"></script>
     </main>
 </body>
 </html>

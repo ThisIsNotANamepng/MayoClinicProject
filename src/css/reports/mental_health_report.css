@@ -1,6 +1,6 @@
 #report-container {
     overflow: hidden;
-    margin: auto 15% auto 15%;
+    margin: 10% 15% auto 15%;
 }
 
 .chart-container {
@@ -25,4 +25,10 @@
   
 .back-button:hover {
     background-color: var(--mayo-dark-blue);
+}
+
+@media (max-width: 1100px) {
+    #report-container {
+        margin-left: 25%;
+    }
 }

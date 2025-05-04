@@ -5,12 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mental Health Report</title>
     <link rel="stylesheet" href="../../css/globals.css">
-    <link rel="stylesheet" href="../../css/reports/meal_health_report.css">
+    <link rel="stylesheet" href="../../css/reports/mental_health_report.css">
     <!--Has a report displaying your mental health data and recommendations on that data-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body>
-    <main id="report-container">
+<body id="mental-health-form-container">
+    <header id="main-header">
+      <div id="logo-title-display">
+          <img src="../../../resources/images/mayo_logo_transparent.jpg" alt="Mayo Clinic Logo">
+          <h2>Bariatric Patient Portal</h2>
+      </div>
+      <ul id="navbar">
+          <li class="nav-element"><a class="selection" href="../dashboard/dashboard.html">Dashboard</a></li>
+          <li class="nav-element"><a class="selection" href="../account/account.html">Account</a></li>
+          <li class="nav-element"><a class="selection" href="../reminders/reminders.html">Reminders</a></li>
+          <li class="nav-element"><a class="selection" href="../dashboard/dashboard.html#section-log">Logs</a></li>
+          <li class="nav-element"><a class="selection" href="../dashboard/dashboard.html#section-guide">Guides</a></li>
+      </ul>
+  </header> 
+
+  <main id="report-container">
       <h1>Mental Health Dashboard</h1>
       <div class="chart-container">
         <h2>Stress Level Over Time</h2>

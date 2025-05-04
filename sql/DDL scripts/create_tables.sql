@@ -48,7 +48,7 @@ CREATE TABLE WeightReport (
 
 CREATE TABLE ExerciseReport (
 	userId 			int NOT NULL,
-    category		ENUM ('sedentary', 'light'. 'moderate', 'active', 'extra_active')  NOT NULL,
+    category		ENUM ('sedentary', 'light', 'moderate', 'active', 'extra_active')  NOT NULL,
     duration		time NOT NULL,
     currWeight      float NOT NULL,
     logDate			date NOT NULL,
@@ -57,19 +57,25 @@ CREATE TABLE ExerciseReport (
 
 CREATE TABLE MealReport (
 	userId			int NOT NULL,
-    category		ENUM ('Fruit', 'Vegetable', 'Grain', 'Protein', 'Dairy', 'Fat', 'Snack', 'Sweet', 'Beverage') NOT NULL,
-    description		varchar(25) NOT NULL,
-    calories		float NOT NULL,
     logDate			date NOT NULL,
+    mealType        ENUM ('breakfast', 'lunch', 'dinner', 'snack'),
+    description     varchar(255) NOT NULL,
+    calories		int NOT NULL,
+    protein         int NOT NULL,
+    carbs           int NOT NULL,
+    fats            int NOT NULL,
+    notes		    varchar(255) NOT NULL,
     FOREIGN KEY (userId) REFERENCES Account(id)
 );
 
 CREATE TABLE MentalHealthReport (
 	userId				int NOT NULL,
-    -- some score determined by the response in the applet (ex add up question answers ranked on scale 1-10) --
-    anxietyScore		int NOT NULL,
-    depressionScore		int NOT NULL,
     logDate				date NOT NULL,
+    mood                ENUM ('happy', 'calm', 'anxious', 'stressed', 'sad', 'angry', 'other'),
+    -- some score determined by the response in the applet (ex add up question answers ranked on scale 1-10) --
+    stressScore		    int NOT NULL,
+    sleepDuration		int NOT NULL,
+    journal             varchar(255),
     FOREIGN KEY (userID) REFERENCES Account(id)
 );
 

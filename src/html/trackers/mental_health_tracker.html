@@ -25,7 +25,8 @@
 
     <main class="mental-health-form-container">
         <h1>Mental Health Tracker Form</h1>
-        <form id="mentalHealthForm" action="/submit-mental-health-data" method="post">
+        <p id="feedback"></p>
+        <form id="mentalHealthForm" method="post">
             <label for="date">Date:</label>
             <input type="date" id="date" name="date" required>
 
@@ -56,6 +57,8 @@
         <div class="back-button-container">
             <a href="../dashboard/dashboard.html#section-log" class="back-button">← Back to Dashboard</a>
         </div>
+
+        <script src="../../javascript/trackers/mental_health_tracker.js"></script>
     </main>
 </body>
 </html>

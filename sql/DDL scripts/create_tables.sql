@@ -48,9 +48,9 @@ CREATE TABLE WeightReport (
 
 CREATE TABLE ExerciseReport (
 	userId 			int NOT NULL,
-    category		ENUM ('Aerobic', 'Strength', 'Stretching', 'Other')  NOT NULL,
+    category		ENUM ('sedentary', 'light'. 'moderate', 'active', 'extra_active')  NOT NULL,
     duration		time NOT NULL,
-    burnedCalories  float NOT NULL,
+    currWeight      float NOT NULL,
     logDate			date NOT NULL,
 	FOREIGN KEY (userId) REFERENCES Account(id)
 );

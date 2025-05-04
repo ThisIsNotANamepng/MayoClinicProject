@@ -1,0 +1,28 @@
+#report-container {
+    overflow: hidden;
+    margin: auto 15% auto 15%;
+}
+
+.chart-container {
+    margin: auto 15% auto 15%;
+}
+
+.back-button-container {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+  
+.back-button {
+    display: inline-block;
+    background-color: var(--mayo-light-blue);
+    color: var(--site-white);
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+  
+.back-button:hover {
+    background-color: var(--mayo-dark-blue);
+}

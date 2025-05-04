@@ -9,9 +9,24 @@
     <!--Has forms for entering fitness data-->
 </head>
 <body>
+    <header id="main-header">
+        <div id="logo-title-display">
+            <img src="../../../resources/images/mayo_logo_transparent.jpg" alt="Mayo Clinic Logo">
+            <h2>Bariatric Patient Portal</h2>
+        </div>
+        <ul id="navbar">
+            <li class="nav-element"><a class="selection" href="../dashboard/dashboard.html">Dashboard</a></li>
+            <li class="nav-element"><a class="selection" href="../account/account.html">Account</a></li>
+            <li class="nav-element"><a class="selection" href="../reminders/reminders.html">Reminders</a></li>
+            <li class="nav-element"><a class="selection" href="../dashboard/dashboard.html#section-report">Reports</a></li>
+            <li class="nav-element"><a class="selection" href="../dashboard/dashboard.html#section-guide">Guides</a></li>
+        </ul>
+    </header>
+
     <main class="fitness-form-container">
         <h1>Fitness Tracker Form</h1>
-        <form id="fitnessForm" action="/submit-fitness-data" method="post">
+        <p id="feedback"></p>
+        <form id="fitnessForm" action="" method="post">
 
             <label for="date">Date:</label>
             <input type="date" id="date" name="date" required>
@@ -29,11 +44,16 @@
                 <option value="extra_active">Very Vigorous Activity (Can't talk)</option>
             </select>
 
-            <label for="length">Length of Time:</label>
+            <label for="length">Length of Time (Minutes):</label>
             <input type="number" id="length" name="length" required>
 
             <button type="submit">Submit</button>
         </form>
+
+        <div class="back-button-container">
+            <a href="../dashboard/dashboard.html#section-log" class="back-button">← Back to Dashboard</a>
+        </div>
     </main>
+    <script src="../../javascript/trackers/fitness_tracker.js"></script>
 </body>
 </html>

@@ -9,6 +9,20 @@
     <!--Has forms for entering mental health data-->
 </head>
 <body>
+    <header id="main-header">
+        <div id="logo-title-display">
+            <img src="../../../resources/images/mayo_logo_transparent.jpg" alt="Mayo Clinic Logo">
+            <h2>Bariatric Patient Portal</h2>
+        </div>
+        <ul id="navbar">
+            <li class="nav-element"><a class="selection" href="../dashboard/dashboard.html">Dashboard</a></li>
+            <li class="nav-element"><a class="selection" href="../account/account.html">Account</a></li>
+            <li class="nav-element"><a class="selection" href="../reminders/reminders.html">Reminders</a></li>
+            <li class="nav-element"><a class="selection" href="../dashboard/dashboard.html#section-report">Reports</a></li>
+            <li class="nav-element"><a class="selection" href="../dashboard/dashboard.html#section-guide">Guides</a></li>
+        </ul>
+    </header>
+
     <main class="mental-health-form-container">
         <h1>Mental Health Tracker Form</h1>
         <form id="mentalHealthForm" action="/submit-mental-health-data" method="post">
@@ -38,6 +52,10 @@
 
             <button type="submit">Submit</button>
         </form>
+
+        <div class="back-button-container">
+            <a href="../dashboard/dashboard.html#section-log" class="back-button">← Back to Dashboard</a>
+        </div>
     </main>
 </body>
 </html>

@@ -4,15 +4,17 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 .fitness-form-container {
     max-width: 600px;
-    margin: 50px auto;
+    margin: 12% auto 50px auto;
     padding: 2rem;
     background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
 h1 {
@@ -59,6 +61,7 @@ textarea {
 
 button[type="submit"] {
     margin-top: 2rem;
+    margin-bottom: 2rem;
     padding: 0.75rem;
     background-color: var(--mayo-dark-blue);
     color: white;
@@ -74,9 +77,39 @@ button[type="submit"]:hover {
     background-color: var(--mayo-light-blue);
 }
 
-@media (max-width: 600px) {
-    .meal-form-container {
-        margin: 20px;
+#feedback {
+    text-align: center;
+}
+
+/* TODO: make these global */
+.back-button-container {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+  
+.back-button {
+    display: inline-block;
+    background-color: var(--mayo-light-blue);
+    color: var(--site-white);
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+  
+.back-button:hover {
+    background-color: var(--mayo-dark-blue);
+}
+
+@media (max-width: 1100px) {
+    body {
+        overflow-y: scroll;
+    }
+
+    .fitness-form-container {
+        margin-left: 25%;
+        margin-right: 5%;
         padding: 1.5rem;
     }
 }
